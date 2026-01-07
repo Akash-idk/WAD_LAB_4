@@ -41,12 +41,11 @@
         error.textContent = "";
 
         // Name validation (only alphabets, min 3)
-        const nameRegex = /^[A-Za-z]{3,}$/;
-        if (!nameRegex.test(name)) {
-          error.textContent =
-            "Name must contain at least 3 alphabets and no numbers or special characters.";
-          return false;
-        }
+        if (!nameRegex.test(name) || name.trim().length < 3) {
+  error.textContent =
+    "Name must contain at least 3 alphabets and only letters and spaces.";
+  return false;
+}
 
         // Email validation
         const emailRegex = /^[a-zA-Z0-9._]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
